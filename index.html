@@ -3,43 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
-
   <title>Document</title>
 </head>
 <body>
   
-  <div class="body">
+<div class="main-div">
+<div class="main">
+  <h1>Получить <br>консультацию</br></h1>
+  <p>Заполните форму и мы свяжемся с <br>вами в ближайшее время</br></p>
+</div>
 
-  <div class="h1">
-    <h1>
-      Получить <br>консультацию</br>
-    </h1>
-  </div>
+<div class="form-group">
+  <input type="text" id="username" name="username" required placeholder=" ">
+  <label for="username">Имя</label>
+</div>
+<style>
+  .form-group {
+  position: relative;
+  width: 250px;
+  margin: 20px;
+}
 
-  <div class="paragraph">
-    <p>Заполните форму и мы свяжемся с <br>вами в ближайшее время</br></p>
-  </div>
+.form-group input {
+  width: 100%;
+  padding: 16px 12px 8px;
+  border: none;
+  background-color: #e0e0e0;
+  border-radius: 0; /* Квадратные края */
+  font-size: 16px;
+  outline: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
 
- 
- 
- <div class="inp" id="inpu">
-    <div class="h2"><h2>Имя</h2></div>
-    <input id="main-input" type="text" placeholder=""/>
- </div>
- 
+.form-group input:focus {
+  background-color: #d5d5d5;
+  box-shadow: 0 0 0 2px #3194be; /* Подсветка при фокусе */
+}
+
+.form-group label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #777;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  top: 6px;
+  font-size: 12px;
+  color: #333;
+}
+
+</style>
+</div>
+
+
   
 
 
   
- <!-- <div class="form-group">
-    <label class="form-label" for="name">Имя</label>
-    <input type="text" id="name" class="form-input" placeholder=" ">
-  </div> -->
+
+
+  
 
 
 
 
+
+
+
+
+
+
+  
 </body>
 </html>
