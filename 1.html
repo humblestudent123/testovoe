@@ -1,52 +1,81 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Форма заполнения</title>
   <style>
     body {
       font-family: sans-serif;
+      margin: 0;
+      padding: 0;
       background: #f9f9f9;
-      padding: 40px;
     }
 
-    .main {
-      margin-bottom: 20px;
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .form-side {
+      flex: 1;
+      padding: 60px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .image-side {
+      flex: 1;
+      background-image: url('/images/image.png');
+      background-size: cover;
+      background-position: center;
     }
 
     .main h1 {
-      font-size: 28px;
+      font-size: 32px;
       margin-bottom: 10px;
     }
 
     .main p {
-      color: #666;
-      font-size: 14px;
+      color: #555;
+      font-size: 16px;
+    }
+
+    form {
+      max-width: 300px;
+      margin-top: 20px;
     }
 
     .form-group {
       position: relative;
-      width: 250px;
-      margin: 20px 0;
+      margin-bottom: 20px;
     }
 
     .form-group input,
     .form-group textarea {
       width: 100%;
       padding: 16px 12px 8px;
-      border: none;
-      background-color: #e0e0e0;
-      border-radius: 0; /* Квадратные поля */
+      border: 1px solid #aaa;
+      background-color: #ffffff;
+      color: #000;
+      border-radius: 4px;
       font-size: 16px;
       outline: none;
       resize: none;
-      transition: background-color 0.3s, box-shadow 0.3s;
+      transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #ccc;
     }
 
     .form-group input:focus,
     .form-group textarea:focus {
-      background-color: #d5d5d5;
-      /* box-shadow: 0 0 0 2px #4CAF50;    обводка для инпутов */
+      border-color: #4CAF50;
+      background-color: #dadada;
     }
 
     .form-group label {
@@ -57,7 +86,6 @@
       font-size: 16px;
       pointer-events: none;
       transition: 0.2s ease all;
-      
     }
 
     .form-group input:focus + label,
@@ -70,10 +98,9 @@
     }
 
     .circle-button {
-       width: 140px;
+      width: 140px;
       height: 50px;
       border: none;
-      border-radius: 0%;
       background-color: #1783d6;
       color: white;
       font-size: 18px;
@@ -83,9 +110,8 @@
       justify-content: center;
       align-items: center;
       transition: background-color 0.3s ease, transform 0.2s ease;
-      margin-top: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       border-radius: 100px;
+      margin-top: 10px;
     }
 
     .circle-button:hover {
@@ -93,64 +119,72 @@
       transform: scale(1.05);
     }
 
+    .small {
+      font-size: 12px;
+      color: #777;
+      margin-top: 10px;
+    }
 
-    .form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 16px 12px 8px;
-  border: 1px solid #aaa; /* серая рамка */
-  background-color: #ffffff;  /* тёмный фон */
-  color: rgb(0, 0, 0);            /* белый текст */
-  border-radius: 4px;
-  font-size: 16px;
-  outline: none;
-  resize: none;
-  transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
-}
+    .small a {
+      color: #1783d6;
+      text-decoration: none;
+    }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #ccc; /* светло-серый текст placeholder */
-}
+    .small a:hover {
+      text-decoration: underline;
+    }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: #4CAF50;
-  background-color: #dadada;
-}
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
 
+      .image-side {
+        height: 200px;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="container">
+    <!-- Левая часть с формой -->
+    <div class="form-side">
+      <div class="main">
+        <h1>Получить консультацию</h1>
+        <p>Заполните форму и мы свяжемся с вами в ближайшее время</p>
+      </div>
 
-  <div class="main">
-    <h1>Получить<br>консультацию</h1>
-    <p>Заполните форму и мы свяжемся с<br>вами в ближайшее время</p>
+      <form>
+        <div class="form-group">
+          <input type="text" id="username" name="username" required placeholder=" ">
+          <label for="username">Имя</label>
+        </div>
+
+        <div class="form-group">
+          <input type="tel" id="phone" name="phone" required placeholder=" ">
+          <label for="phone">Телефон</label>
+        </div>
+
+        <div class="form-group">
+          <input type="email" id="email" name="email" required placeholder=" ">
+          <label for="email">Email</label>
+        </div>
+
+        <div class="form-group">
+          <textarea id="message" name="message" required placeholder=" " rows="4"></textarea>
+          <label for="message">Текст сообщения</label>
+        </div>
+
+        <button type="submit" class="circle-button">Отправить</button>
+
+        <div class="small">
+          Нажимая «Продолжить», вы принимаете <a href="#">пользовательское соглашение</a> и <a href="#">политику конфиденциальности</a>.
+        </div>
+      </form>
+    </div>
+
+    <!-- Правая часть с изображением -->
+    <div class="image-side"></div>
   </div>
-
-  <form>
-    <div class="form-group">
-      <input type="text" id="username" name="username" required placeholder=" ">
-      <label for="username">Имя</label>
-    </div>
-
-    <div class="form-group">
-      <input type="tel" id="phone" name="phone" required placeholder=" ">
-      <label for="phone">Телефон</label>
-    </div>
-
-    <div class="form-group">
-      <input type="email" id="email" name="email" required placeholder=" ">
-      <label for="email">Email</label>
-    </div>
-
-    <div class="form-group">
-      <textarea id="message" name="message" required placeholder=" " rows="4"></textarea>
-      <label for="message">Текст сообщения</label>
-    </div>
-
-    <button type="submit" class="circle-button">Отправить</button>
-  </form>
-
 </body>
 </html>
