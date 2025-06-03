@@ -57,6 +57,7 @@
       font-size: 16px;
       pointer-events: none;
       transition: 0.2s ease all;
+      
     }
 
     .form-group input:focus + label,
@@ -91,6 +92,33 @@
       background-color: #1162a0;
       transform: scale(1.05);
     }
+
+
+    .form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 16px 12px 8px;
+  border: 1px solid #aaa; /* серая рамка */
+  background-color: #ffffff;  /* тёмный фон */
+  color: rgb(0, 0, 0);            /* белый текст */
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  resize: none;
+  transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #ccc; /* светло-серый текст placeholder */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #4CAF50;
+  background-color: #dadada;
+}
+
   </style>
 </head>
 <body>
