@@ -15,6 +15,7 @@
     .container {
       display: flex;
       height: 100vh;
+      overflow: hidden;
     }
 
     .form-side {
@@ -24,13 +25,23 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      z-index: 2;
     }
 
     .image-side {
       flex: 1;
-      background-image: url('/images/image.png');
-      background-size: cover;
-      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .image-side img {
+      width: 110%;
+      height: 100%;
+      object-fit: cover;
+      margin-left: -60px; /* Сдвиг изображения ближе к форме */
     }
 
     .main h1 {
@@ -142,12 +153,16 @@
       .image-side {
         height: 200px;
       }
+
+      .image-side img {
+        margin-left: 0;
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Левая часть с формой -->
     <div class="form-side">
       <div class="main">
         <h1>Получить консультацию</h1>
@@ -183,8 +198,9 @@
       </form>
     </div>
 
-    <!-- Правая часть с изображением -->
-    <div class="image-side"></div>
+    <div class="image-side">
+      <img src="/images/image.png" alt="Оператор">
+    </div>
   </div>
 </body>
 </html>
