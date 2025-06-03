@@ -3,171 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <title>Форма заполнения</title>
-  <link rel="stylesheet" href="styles.css">
- <style>
-  .form-group {
-  position: relative;
-  width: 250px;
-  margin: 20px;
-}
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f9f9f9;
+      padding: 40px;
+    }
 
-.form-group input {
-  width: 100%;
-  padding: 16px 12px 8px;
-  border: none;
-  background-color: #e0e0e0;
-  border-radius: 0; /* Квадратные края */
-  font-size: 16px;
-  outline: none;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
+    .main {
+      margin-bottom: 20px;
+    }
 
-.form-group input:focus {
-  background-color: #d5d5d5;
-  box-shadow: 0 0 0 2px #3194be; /* Подсветка при фокусе */
-}
+    .main h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
 
-.form-group label {
-  position: absolute;
-  top: 50%;
-  left: 12px;
-  transform: translateY(-50%);
-  color: #777;
-  font-size: 16px;
-  pointer-events: none;
-  transition: 0.2s ease all;
-}
+    .main p {
+      color: #666;
+      font-size: 14px;
+    }
 
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label {
-  top: 6px;
-  font-size: 12px;
-  color: #333;
-}
+    .form-group {
+      position: relative;
+      width: 250px;
+      margin: 20px 0;
+    }
 
-</style>
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 16px 12px 8px;
+      border: none;
+      background-color: #e0e0e0;
+      border-radius: 0; /* Квадратные поля */
+      font-size: 16px;
+      outline: none;
+      resize: none;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      background-color: #d5d5d5;
+      box-shadow: 0 0 0 2px #4CAF50;
+    }
+
+    .form-group label {
+      position: absolute;
+      top: 16px;
+      left: 12px;
+      color: #777;
+      font-size: 16px;
+      pointer-events: none;
+      transition: 0.2s ease all;
+    }
+
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label,
+    .form-group textarea:focus + label,
+    .form-group textarea:not(:placeholder-shown) + label {
+      top: 6px;
+      font-size: 12px;
+      color: #333;
+    }
+
+    .circle-button {
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 50%;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 20px;
+    }
+
+    .circle-button:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
 
-  <div class="main-div">
-<div class="main">
-  <h1>Получить <br>консультацию</br></h1>
-  <p>Заполните форму и мы свяжемся с <br>вами в ближайшее время</br></p>
-</div>
+  <div class="main">
+    <h1>Получить<br>консультацию</h1>
+    <p>Заполните форму и мы свяжемся с<br>вами в ближайшее время</p>
+  </div>
 
-<div class="form-group">
-  <input type="text" id="username" name="username" required placeholder=" ">
-  <label for="username">Имя</label>
-</div>
+  <form>
+    <div class="form-group">
+      <input type="text" id="username" name="username" required placeholder=" ">
+      <label for="username">Имя</label>
+    </div>
 
+    <div class="form-group">
+      <input type="tel" id="phone" name="phone" required placeholder=" ">
+      <label for="phone">Телефон</label>
+    </div>
 
-<div class="form-group">
-  <input type="tel" id="phone" name="phone" required placeholder=" ">
-  <label for="phone">Номер телефона</label>
-</div>
+    <div class="form-group">
+      <input type="email" id="email" name="email" required placeholder=" ">
+      <label for="email">Email</label>
+    </div>
 
-<div class="form-group">
-  <input type="email" id="email" name="email" required placeholder=" ">
-  <label for="email">Email</label>
-</div>
+    <div class="form-group">
+      <textarea id="message" name="message" required placeholder=" " rows="4"></textarea>
+      <label for="message">Сообщение</label>
+    </div>
 
-<div class="form-group">
-  <textarea id="message" name="message" required placeholder=" " rows="4"></textarea>
-  <label for="message">Сообщение</label>
-
-  <style>
-    .form-group {
-  position: relative;
-  width: 250px;
-  margin: 20px;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 16px 12px 8px;
-  border: none;
-  background-color: #e0e0e0;
-  border-radius: 0;
-  font-size: 16px;
-  outline: none;
-  resize: none; /* отключаем растягивание textarea */
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  background-color: #d5d5d5;
-  box-shadow: 0 0 0 2px #4CAF50;
-}
-
-.form-group label {
-  position: absolute;
-  top: 16px;
-  left: 12px;
-  color: #777;
-  font-size: 16px;
-  pointer-events: none;
-  transition: 0.2s ease all;
-}
-
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label,
-.form-group textarea:focus + label,
-.form-group textarea:not(:placeholder-shown) + label {
-  top: 6px;
-  font-size: 12px;
-  color: #333;
-}
-
-  </style>
-</div>
-
-
-
-
-<style>
-  .form-group {
-  position: relative;
-  width: 250px;
-  margin: 20px;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 16px 12px 8px;
-  border: none;
-  background-color: #e0e0e0;
-  border-radius: 0; /* Квадратные поля */
-  font-size: 16px;
-  outline: none;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.form-group input:focus {
-  background-color: #d5d5d5;
-  box-shadow: 0 0 0 2px #4CAF50;
-}
-
-.form-group label {
-  position: absolute;
-  top: 50%;
-  left: 12px;
-  transform: translateY(-50%);
-  color: #777;
-  font-size: 16px;
-  pointer-events: none;
-  transition: 0.2s ease all;
-}
-
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label {
-  top: 6px;
-  font-size: 12px;
-  color: #333;
-}
-
-</style>
+    <button type="submit" class="circle-button">Отправить</button>
+  </form>
 
 </body>
 </html>

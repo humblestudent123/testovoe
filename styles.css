@@ -1,7 +1,6 @@
   body{
 
-
-
+  
     .main {
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       font-size: large;
@@ -26,10 +25,10 @@
       font-size: 16px;
     }
 
-    #padd {
+    /* #padd {
       padding-right: 100px;
       
-    }
+    } */
   }
 
 
