@@ -1,86 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
-  <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Форма заполнения</title>
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-  
-<div class="main-div">
-<div class="main">
-  <h1>Получить <br>консультацию</br></h1>
-  <p>Заполните форму и мы свяжемся с <br>вами в ближайшее время</br></p>
-</div>
+  <div class="container">
+    <div class="form-side">
+      <div class="main">
+        <h1>Получить <br>консультацию</h1>
+        <p>Заполните форму и мы свяжемся с <br>вами в ближайшее время</p>
+      </div>
 
-<div class="form-group">
-  <input type="text" id="username" name="username" required placeholder=" ">
-  <label for="username">Имя</label>
-</div>
-<style>
-  .form-group {
-  position: relative;
-  width: 250px;
-  margin: 20px;
-}
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <input type="text" id="username" name="username" required placeholder=" " />
+          <label for="username">Имя</label>
+          <div class="error-message"></div>
+        </div>
 
-.form-group input {
-  width: 100%;
-  padding: 16px 12px 8px;
-  border: none;
-  background-color: #e0e0e0;
-  border-radius: 0; /* Квадратные края */
-  font-size: 16px;
-  outline: none;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
+        <div class="form-group">
+          <input type="tel" id="phone" name="phone" pattern="^\+?[0-9\s\-]{7,15}$" placeholder=" " />
+          <label for="phone">Телефон</label>
+          <div class="error-message"></div>
+        </div>
 
-.form-group input:focus {
-  background-color: #d5d5d5;
-  box-shadow: 0 0 0 2px #3194be; /* Подсветка при фокусе */
-}
+        <div class="form-group">
+          <input type="email" id="email" name="email" required placeholder=" " />
+          <label for="email">Email</label>
+          <div class="error-message"></div>
+        </div>
 
-.form-group label {
-  position: absolute;
-  top: 50%;
-  left: 12px;
-  transform: translateY(-50%);
-  color: #777;
-  font-size: 16px;
-  pointer-events: none;
-  transition: 0.2s ease all;
-}
+        <div class="form-group">
+          <textarea id="message" name="message" required placeholder=" " rows="4"></textarea>
+          <label for="message">Текст сообщения</label>
+          <div class="error-message"></div>
+        </div>
 
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label {
-  top: 6px;
-  font-size: 12px;
-  color: #333;
-}
+        <button type="submit" class="circle-button">Отправить</button>
 
-</style>
-</div>
+        <div class="small">
+          Нажимая «Продолжить», вы принимаете <a href="#">пользовательское соглашение</a> и <a href="#">политику конфиденциальности</a>.
+        </div>
+      </form>
+    </div>
 
+    <div class="image-side">
+      <img src="/images/image.png" alt="Оператор" />
+    </div>
+  </div>
 
-  
-
-
-  
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  
+  <script src="/js/script.js"></script>
 </body>
 </html>
